@@ -418,9 +418,14 @@ const TherapyWellnessHub = () => {
     // Timer countdown
     useEffect(() => {
   if (timeLeft === null || timeLeft <= 0) return;
-  const t = setTimeout(() => setTimeLeft((t) => (t !== null ? t - 1 : 0)), 1000);
+
+  const t = setTimeout(() => {
+    setTimeLeft(prev => (prev !== null ? prev - 1 : 0));
+  }, 1000);
+
   return () => clearTimeout(t);
-}, [timeLeft])
+}, [timeLeft]);
+
 
 
 
