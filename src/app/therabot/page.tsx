@@ -363,4 +363,8 @@ const MoodMate: React.FC<MoodMateProps> = ({
   );
 };
 
-export default MoodMate;
+// src/app/therabot/page.tsx
+
+export default function TherabotPage() {
+  return <MoodMate />;
+}
