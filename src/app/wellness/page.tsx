@@ -417,10 +417,12 @@ const TherapyWellnessHub = () => {
 
     // Timer countdown
     useEffect(() => {
-      if (timeLeft === null || timeLeft <= 0) return;
-      const t = setTimeout(() => setTimeLeft((prev) => (prev ? prev - 1 : null)), 1000);
-      return () => clearTimeout(t);
-    }, [timeLeft]);
+  if (timeLeft === null || timeLeft <= 0) return;
+
+  const t = setTimeout(() => setTimeLeft((prev) => (prev !== null ? prev - 1 : null)), 1000);
+  return () => clearTimeout(t);
+}, [timeLeft]);
+
 
     function newChallenge() {
       const c = CHALLENGES[Math.floor(Math.random() * CHALLENGES.length)];
