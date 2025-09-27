@@ -419,9 +419,13 @@ const TherapyWellnessHub = () => {
     useEffect(() => {
   if (timeLeft === null || timeLeft <= 0) return;
 
-  const t = setTimeout(() => setTimeLeft((prev) => (prev !== null ? prev - 1 : null)), 1000);
+  const t = setTimeout(() => {
+    setTimeLeft(prev => (prev !== null ? prev - 1 : null));
+  }, 1000);
+
   return () => clearTimeout(t);
 }, [timeLeft]);
+
 
 
     function newChallenge() {
